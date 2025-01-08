@@ -17,7 +17,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 
-#eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config /Users/andy/.config/ohmyposh/zen.toml)"
 fi
@@ -129,6 +129,6 @@ function ekns() {
   export KUBE_NAMESPACE=$(echo $namespaces | fzf --select-1 --preview "kubectl --namespace {} get pods")
   echo "Set namespace to $KUBE_NAMESPACE"
 }
-export PATH="$PATH:$HOME/bin:$HOME/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
