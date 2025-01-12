@@ -3,7 +3,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
+export XDG_CONFIG_HOMe=~/.config
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -66,6 +66,9 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 alias ls="eza --icons=always"
+ccat () {
+    /bin/cat "$1" | pbcopy
+}
 
 eval "$(fzf --zsh)"
 # Completion styling
