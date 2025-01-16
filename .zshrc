@@ -81,6 +81,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Aliases
 alias ls='ls --color'
 alias vim='nvim'
