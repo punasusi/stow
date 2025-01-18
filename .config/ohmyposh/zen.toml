@@ -47,6 +47,13 @@ final_space = true
       cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
+ 
+  [[blocks.segments]]
+    template = '{{ if .Env.DEVBOX_SHELL_ENABLED }}  DevBox {{ end }}'
+    foreground = 'cyan'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
 
 [[blocks]]
   type = 'rprompt'
