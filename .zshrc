@@ -3,7 +3,8 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-export XDG_CONFIG_HOMe=~/.config
+eval "$(devbox global shellenv --init-hook)"
+export XDG_CONFIG_HOME=~/.config
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
