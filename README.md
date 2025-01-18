@@ -4,9 +4,10 @@ This is not all my dotfiles, but the ones related to the shell prompt setup I us
 ## Requrements
 - git
 - GNU stow
+- [devbox](https://www.jetify.com/docs/devbox/installing_devbox/)
 
 ## Dependancies
-These are the dependancies I have installed via homebrew, you may not need them all, but including for reference:
+These are the dependancies I have installed via Devbox. They will be enabled later on. 
 
 bat
 fzf
@@ -23,7 +24,6 @@ oh-my-posh
 pre-commit
 ripgrep
 stow
-zellij
 zoxide
 
 ## Installation
@@ -45,6 +45,8 @@ If the files already exist, you can direct stow to adopt them.
 ```bash
 stow . --adopt
 ```
+
+Then, we want to enable devbox to be a global package manager to use packages listed above. See intructions [here](https://www.jetify.com/docs/devbox/devbox_global/), but it should happen already with the zshrc settings. 
 
 ## Kubectl use
 I also have created a symlink for ~/.kube/config to point to /dev/null.
