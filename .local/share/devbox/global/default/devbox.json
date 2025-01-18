@@ -6,7 +6,10 @@
     "stow@latest",
     "chezmoi@latest",
     "oh-my-posh@latest",
-    "neovim@latest"
+    "neovim@latest",
+    "kubectl@latest",
+    "kubecolor@latest",
+    "bat@latest"
   ],
   "shell": {
     "init_hook": [
