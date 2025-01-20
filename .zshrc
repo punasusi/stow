@@ -84,6 +84,7 @@ eval "$(zoxide init zsh)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Aliases
+alias ds='devbox shell'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'

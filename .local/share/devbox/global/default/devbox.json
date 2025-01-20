@@ -7,17 +7,14 @@
     "chezmoi@latest",
     "oh-my-posh@latest",
     "neovim@latest",
-    "kubectl@latest",
-    "kubecolor@latest",
     "bat@latest",
     "gh@latest",
-    "kubelogin-oidc@latest",
     "kubernetes-helm@latest",
     "just@latest",
-    "k9s@latest",
     "kind@latest",
     "pre-commit@latest",
-    "ripgrep@latest"
+    "ripgrep@latest",
+    "tree@latest"
   ],
   "shell": {
     "init_hook": [
