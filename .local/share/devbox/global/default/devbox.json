@@ -2,7 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
   "packages": [
     "fzf@latest",
-    "zoxide@latest",
     "stow@latest",
     "chezmoi@latest",
     "oh-my-posh@latest",
