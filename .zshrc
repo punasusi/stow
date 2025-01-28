@@ -79,8 +79,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# ---- Zoxide (better cd) ----
-eval "$(zoxide init zsh)"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Aliases
@@ -99,7 +97,6 @@ alias kck='kubectl get po -A -o wide | grep -Ev "Running|Completed|trivy-system"
 alias uekns='unset KUBE_NAMESPACE'
 alias kdrain="kubecolor drain --ignore-daemonsets --delete-emptydir-data"
 alias cat="bat"
-alias cd="z"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 # export kubeconfig
 ek() {
@@ -136,5 +133,4 @@ function ekns() {
   echo "Set namespace to $KUBE_NAMESPACE"
 }
 export PATH="$PATH:$HOME/go/bin"
-# Shell integrations
-eval "$(zoxide init --cmd cd zsh)"
+
