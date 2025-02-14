@@ -41,6 +41,8 @@ zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
+source <(kubectl completion zsh)
+eval "$(fzf --zsh)"
 
 zinit cdreplay -q
 
@@ -78,6 +80,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*:*:kubectl:*' menu select
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+fpath+=~/.zsh/completions
+autoload -Uz compinit && compinit
 
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -132,5 +140,5 @@ function ekns() {
   export KUBE_NAMESPACE=$(echo $namespaces | fzf --select-1 --preview "kubectl --namespace {} get pods")
   echo "Set namespace to $KUBE_NAMESPACE"
 }
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/go/bin:$HOME/bin"
 

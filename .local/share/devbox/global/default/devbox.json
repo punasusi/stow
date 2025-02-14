@@ -14,7 +14,9 @@
     "pre-commit@latest",
     "ripgrep@latest",
     "tree@latest",
-    "zellij@latest"
+    "kubectl@latest",
+    "kubecolor@latest",
+    "k9s@latest"
   ],
   "shell": {
     "init_hook": [
