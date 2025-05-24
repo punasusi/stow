@@ -16,7 +16,9 @@
     "tree@latest",
     "kubectl@latest",
     "kubecolor@latest",
-    "k9s@latest"
+    "k9s@latest",
+    "wget@latest",
+    "watch@latest"
   ],
   "shell": {
     "init_hook": [

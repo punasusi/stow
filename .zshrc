@@ -140,5 +140,5 @@ function ekns() {
   export KUBE_NAMESPACE=$(echo $namespaces | fzf --select-1 --preview "kubectl --namespace {} get pods")
   echo "Set namespace to $KUBE_NAMESPACE"
 }
-export PATH="$PATH:$HOME/go/bin:$HOME/bin"
-
+export PATH="$PATH:$HOME/go/bin:$HOME/bin:$HOME/.rd/bin"
+export NODE_TLS_REJECT_UNAUTHORIZED=0
