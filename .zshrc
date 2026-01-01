@@ -22,32 +22,53 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config /Users/andy/.config/ohmyposh/zen.toml)"
 fi
 
-# Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Add in snippets
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
-
-# Load completions
 autoload -Uz compinit && compinit
 source <(kubectl completion zsh)
 eval "$(fzf --zsh)"
 
 zinit cdreplay -q
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 # Keybindings
 bindkey -e
+bindkey ' ' magic-space
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+
+bindkey -s '^Xgc' 'git commit -m ""\C-b'
+bindkey -s '^Xgs' 'git status\n'
+bindkey -s '^Xgl' 'git log --oneline -n 10\n'
+
+# Just type the filename to open it with the associated program
+alias -s json=jless
+alias -s md=bat
+alias -s go='$EDITOR'
+alias -s txt=bat
+alias -s log=bat
+alias -g NE='2>/dev/null'
+alias -g NO='>/dev/null'
+alias -g NUL='>/dev/null 2>&1'
+
+# Enable zmv
+autoload -Uz zmv
+
+# Usage examples:
+# zmv '(*).log' '$1.txt'           # Rename .log to .txt
+# zmv -w '*.log' '*.txt'           # Same thing, simpler syntax
+# zmv -n '(*).log' '$1.txt'        # Dry run (preview changes)
+# zmv -i '(*).log' '$1.txt'        # Interactive mode (confirm each)
+
+# Access with ~name syntax, e.g., cd ~yt or ls ~yt
+hash -d plat=~/repos/platform
+hash -d dl=~/Downloads
 
 # History
 HISTSIZE=5000
@@ -66,6 +87,7 @@ alias ls="eza --icons=always"
 ccat () {
     /bin/cat "$1" | pbcopy
 }
+
 
 eval "$(fzf --zsh)"
 # Completion styling
