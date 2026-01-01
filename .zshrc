@@ -3,7 +3,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-eval "$(devbox global shellenv --init-hook)"
 export XDG_CONFIG_HOME=~/.config
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -22,8 +21,6 @@ eval "$(oh-my-posh init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config /Users/andy/.config/ohmyposh/zen.toml)"
 fi
-# # Add in Powerlevel10k
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -45,9 +42,6 @@ source <(kubectl completion zsh)
 eval "$(fzf --zsh)"
 
 zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
 bindkey -e
@@ -90,7 +84,6 @@ autoload -Uz compinit && compinit
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Aliases
-alias ds='devbox shell'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
